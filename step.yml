@@ -13,9 +13,9 @@ summary: |
   Upload a release version of app to AppSweep
 description: |
   Sends app to AppSweep for app analysis.
-website: https://github.com/izabela-perenc/bitrise-step-upload-release-to-appsweep
-source_code_url: https://github.com/izabela-perenc/bitrise-step-upload-release-to-appsweep
-support_url: https://github.com/izabela-perenc/bitrise-step-upload-release-to-appsweep/issues
+website: https://github.com/izabela-perenc/bitrise-step-upload-to-appsweep
+source_code_url: https://github.com/izabela-perenc/bitrise-step-upload-to-appsweep
+support_url: https://github.com/izabela-perenc/bitrise-step-upload-to-appsweep/issues
 host_os_tags:
   - osx-10.10
   - ubuntu-16.04
@@ -66,11 +66,17 @@ toolkit:
 
 
 inputs:     
-  - debug: true
+  - debug: false
     opts:
       title: "Should debug version be uploaded"
       summary: Set to true to upload debug version to false to upload release.
-      description: The flag can be set to true to upload debug version, and that is the default behaviour. Id set to false to release version will be uploaded.
+      description: The flag can be set to false to upload release version, and that is the default behaviour. If set to true to debug version will be uploaded.
+      is_required: true
+  - protected: false
+    opts:
+      title: "Should protected version be uploaded"
+      summary: Set to true to upload protected version to false to upload unprotected.
+      description: The flag can be set to false to upload unprotected version, and that is the default behaviour. If set to true to protected version will be uploaded.
       is_required: true
   - gradlew_path: $GRADLEW_PATH
     opts:

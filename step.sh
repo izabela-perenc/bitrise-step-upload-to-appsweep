@@ -6,6 +6,17 @@ echo "This is the value specified for the input 'example_step_input': ${example_
 cd ${gradlew_path}
 #/home/izabela/AndroidStudioProjects/MyApplication/
 
+
+if (./gradlew tasks | grep -q "Protected" ) && ${protected};
+then
+	if ${debug}
+	then
+	    ./gradlew uploadToAppSweepDebugProtected
+	else
+	    ./gradlew uploadToAppSweepReleaseProtected
+	fi
+fi
+
 if ${debug}
 then
     ./gradlew uploadToAppSweepDebug
