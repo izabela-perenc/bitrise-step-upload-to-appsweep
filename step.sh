@@ -2,6 +2,7 @@
 set -ex
 
 cd ${project_location}
+BUILD_FILE=./app/build.gradle
 
 if [ ! -f "$BUILD_FILE" ]; then
     echo "$BUILD_FILE does not exist. Probably you are using not standard project structure, please add following plugin \"com.guardsquare.appsweep\" to build.gradle script."
@@ -22,7 +23,6 @@ else
 			echo "AppSweep plugin succesfully injected to $BUILD_FILE"
 		else
 			echo "AppSweep plugin was not injected to $BUILD_FILE. Please add following plugin \"com.guardsquare.appsweep\" to build.gradle script manually."
-		exit 1
 		fi   
 	fi
 fi
