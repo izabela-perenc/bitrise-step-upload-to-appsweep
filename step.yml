@@ -28,6 +28,13 @@ toolkit:
     entry_file: step.sh
 
 inputs:     
+  - appsweep_api_key: $APPSWEEP_API_KEY
+	opts:
+      category: Config
+      title: AppSweep API key
+      description: |
+        An `APPSWEEP_API_KEY` must be set it allows to upload an spk to your AppSweep account, you can generate it in the API Keys section of your project settings.
+      is_required: true
   - debug: false
     opts:
       title: "Should debug version be uploaded"
@@ -37,18 +44,18 @@ inputs:
   - project_location: $PROJECT_LOCATION
     opts:
       category: Config
-      title: project file path
+      title: Project file path
       description: |
         Allows to automatically find gradlew file and build.gradle file.
       is_required: true
   - gradlew_path: $GRADLEW_PATH
     opts:
       category: Config
-      title: gradlew file path
+      title: Gradlew file path
       description: |
         Using a Gradle Wrapper (gradlew) is required, as the wrapper is used to call
         Gradle taks that is uploading an app. If gradle_path is not specified then gradlew is searched in repository root.        
         The path should be relative to the repository root. For example, `./gradlew`,
         or if it is in a sub directory, `./sub/dir/gradlew`.
       is_required: false
-       
+

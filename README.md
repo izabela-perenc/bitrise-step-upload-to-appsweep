@@ -28,6 +28,9 @@ If the step fails because of **Task was not found in root project** it means tha
 
 If the step fails with **The gradlew file was not found please provide correct gradlew_path** that means that path to gradlew is not correct. Please remember thet, the path must be relative to the root of the repository and should contain `gradlew` file in the end for example `./dir/gradlew`.
 
+If the step fails with **No API key set. Either set the APPSWEEP_API_KEY environmant variable or apiKey in the appsweep block
+** it means that AppSweep API key was not set. 
+
 </details>
 
 ## How to use this Step
