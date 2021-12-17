@@ -34,17 +34,21 @@ inputs:
       summary: Set to true to upload debug version to false to upload release.
       description: The flag can be set to false to upload release version, and that is the default behaviour. If set to true to debug version will be uploaded.
       is_required: true
+  - project_location: $PROJECT_LOCATION
+    opts:
+      category: Config
+      title: project file path
+      description: |
+        Allows to automatically find gradlew file and build.gradle file.
+      is_required: true
   - gradlew_path: $GRADLEW_PATH
     opts:
       category: Config
       title: gradlew file path
       description: |
-        Using a Gradle Wrapper (gradlew) is required, as the wrapper ensures
-        that the right Gradle version is installed and used for the build.
-        You can find more information about the Gradle Wrapper (gradlew),
-        and about how you can generate one
-        in the official guide at: [https://docs.gradle.org/current/userguide/gradle_wrapper.html](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+        Using a Gradle Wrapper (gradlew) is required, as the wrapper is used to call
+        Gradle taks that is uploading an app. If gradle_path is not specified then gradlew is searched in repository root.        
         The path should be relative to the repository root. For example, `./gradlew`,
         or if it is in a sub directory, `./sub/dir/gradlew`.
-      is_required: true
+      is_required: false
        
