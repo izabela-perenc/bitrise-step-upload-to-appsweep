@@ -29,7 +29,7 @@ toolkit:
 
 inputs:     
   - appsweep_api_key: $APPSWEEP_API_KEY
-	opts:
+    opts:
       category: Config
       title: AppSweep API key
       description: |
