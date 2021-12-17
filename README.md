@@ -48,4 +48,13 @@ envs:
 - APPSWEEP_API_KEY: gs_appsweep_SOME_API_KEY
 ```
 
+## Examples
+```
+- git::https://github.com/izabela-perenc/bitrise-step-upload-to-appsweep.git@master:
+    title: AppSweep
+    inputs:
+    - appsweep_api_key: gs_appsweep_SOME_API_KEY
+    - debug: true
+    - project_location: ./
+```
 
