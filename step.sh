@@ -4,7 +4,7 @@ set -ex
 if [[ ! -z "${APPSWEEP_API_KEY}" ]]; then
   export APPSWEEP_API_KEY=${appsweep_api_key}
 fi
-export ${project_location}
+
 cd ${project_location}
 BUILD_FILE=./app/build.gradle
 
