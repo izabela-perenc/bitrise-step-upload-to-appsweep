@@ -35,6 +35,8 @@ inputs:
       description: |
         An `APPSWEEP_API_KEY` must be set to allow scanning of the app inside an AppSweep project. You can generate it in the API Keys section of your project settings.
       is_required: true
+      is_sensitive: true
+      is_expand: true
   - debug: false
     opts:
       title: "Should debug version be uploaded"
