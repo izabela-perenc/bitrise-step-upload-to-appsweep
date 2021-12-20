@@ -1,5 +1,7 @@
 # Upload release to AppSweep
 
+[![Step changelog](https://shields.io/github/v/release/izabela-perenc/bitrise-step-upload-to-appsweep?include_prereleases&label=changelog&color=blueviolet)](https://https://github.com/izabela-perenc/bitrise-step-upload-to-appsweep/releases)
+
 Sends app to AppSweep for app analysis.
 
 <details>
