@@ -3,6 +3,11 @@ set -ex
 
 export APPSWEEP_API_KEY=${appsweep_api_key}
 
+if [ -z "$APPSWEEP_API_KEY" ]
+then
+	echo "Required input APPSWEEP_API_KEY is empty"	
+	exit 1
+fi
 
 cd ${project_location}
 BUILD_FILE=./app/build.gradle
