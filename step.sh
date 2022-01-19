@@ -25,7 +25,7 @@ else
 		#remove potential new line characters after 'plugins'
 		sed -i '/plugins/{N;s/\n//;}' $BUILD_FILE
 		#inject AppSweep plugin
-		sed -i 's/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version "0.1.7"\n/1' $BUILD_FILE
+		sed -i 's/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version "${gradle_plugin_version}"\n/1' $BUILD_FILE
 		if grep -Fq "\"com.guardsquare.appsweep\"" $BUILD_FILE
 		then
 			echo "AppSweep plugin succesfully injected to $BUILD_FILE."
