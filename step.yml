@@ -4,10 +4,10 @@ description: "The build of your app is automatically uploaded to [AppSweep](http
   for scanning. \n\nAppSweep is Guardsquare's free tool enabling developers to put
   mobile security at the forefront of app development. AppSweep helps you identify
   and fix security issues in your code and dependencies with actionable recommendations
-  and insights that will help you build more secure mobile apps.\n"
-website: https://github.com/Guardsquare/bitrise-steplib/tree/scan-with-appsweep-1.0.0
-source_code_url: https://github.com/Guardsquare/bitrise-steplib/tree/scan-with-appsweep-1.0.0
-support_url: https://github.com/Guardsquare/bitrise-step-upload-to-appsweep/issues
+  and insights that will help you build more secure mobile apps."
+website: https://www.guardsquare.com/appsweep-mobile-application-security-testing
+source_code_url: https://github.com/Guardsquare/bitrise-step-scan-with-appsweep
+support_url: https://github.com/Guardsquare/bitrise-step-scan-with-appsweep/issues
 published_at: 2022-01-18T12:13:50.297679995+01:00
 source:
   git: https://github.com/Guardsquare/bitrise-step-scan-with-appsweep.git
@@ -33,19 +33,19 @@ inputs:
     is_required: true
     is_sensitive: true
     title: AppSweep API key
-- debug: "no - upload release version"
+- build_variant: "release"
   opts:
     description: |
-      Set to true to upload the debug version of your app, or to false (default) to upload the release version.
+      Set to debug to upload the debug version of your app, or to release to upload the release version.
     value_options:
-    - "yes - upload debug version"
-    - "no - upload release version"
+    - "debug"
+    - "release"
     is_required: true
     title: Should debug version be uploaded
 - project_location: $PROJECT_LOCATION
   opts:
     description: |
-      Set this to the location of your project inside your repository. Inside this directory build file will be expected to be in `./app/build.gradle` and gradlew file will be expected to be directly in the `project_location` - `./gradlew`.
+      Set this to the location of your project inside your repository. Inside this directory, the build file should be `./app/build.gradle` and `gradlew` should be directly in the `project_location`.
     is_required: true
     title: Project file path
 - gradle_plugin_version: "0.1.7"
@@ -57,7 +57,9 @@ inputs:
 outputs:
 - APPSWEEP_UPLOAD_URL:
   opts:
-    title: AppSweep upload url
-    summary: Direct link to uploaded app on AppSweep website
+    title: AppSweep upload URL
+    summary: Direct link to the scan results on AppSweep website
     description: |
-      The app is uploaded to AppSweep and scan results can be accessed in the project section. The url of particular upload is generated during the step, so that results can be accessed also directly via this url.
+      This URL of a particular scan is generated during the execution of this step, the results of the scan can be accessed in AppSweep directly via this URL.
+
+
