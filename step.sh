@@ -47,7 +47,6 @@ else
 	echo "The gradlew wrapper was not found. Please provide the correct gradlew_path."
 	exit 1
 fi
-echo ${build_variant}
 if ${build_variant}
 then
     output=$($GRADLEW uploadToAppSweepDebug)
