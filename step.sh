@@ -25,7 +25,7 @@ else
 		#remove potential new line characters after 'plugins'
 		sed -i '/plugins/{N;s/\n//;}' $BUILD_FILE
 		#inject AppSweep plugin
-		sed -i 's/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version "${gradle_plugin_version}"\n/1' $BUILD_FILE
+		sed -i 's/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version \"${gradle_plugin_version}\"\n/1' $BUILD_FILE
 		if grep -Fq "\"com.guardsquare.appsweep\"" $BUILD_FILE
 		then
 			echo "AppSweep plugin succesfully injected to $BUILD_FILE."
@@ -35,16 +35,12 @@ else
 	fi
 fi
 
-if [ -f "${gradlew_path}" ];
-then
-	echo "The gradlew wrapper was found in ${gradlew_path}."
-	GRADLEW={$gradlew_path}
-elif [ -f "./gradlew" ];
+if [ -f "./gradlew" ];
 then
 	echo "The gradlew wrapper was found in ${project_location}/gradlew"
 	GRADLEW=./gradlew
 else
-	echo "The gradlew wrapper was not found. Please provide the correct gradlew_path."
+	echo "The gradlew wrapper was not found. Please provide the correct project_location."
 	exit 1
 fi
 if [ "${build_variant}" = "debug" ]

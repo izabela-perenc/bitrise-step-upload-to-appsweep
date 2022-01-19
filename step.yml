@@ -36,7 +36,7 @@ inputs:
 - build_variant: "release"
   opts:
     description: |
-      Set to debug to upload the debug version of your app, or to release to upload the release version.
+      Set to `debug` to upload the debug version of your app, or to `release` to upload the release version.
     value_options:
     - "debug"
     - "release"
