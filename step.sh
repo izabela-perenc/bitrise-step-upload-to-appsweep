@@ -1,17 +1,17 @@
 #!/bin/bash
 set -ex
-​
+
 export APPSWEEP_API_KEY=${appsweep_api_key}
-​
+
 if [ -z "$APPSWEEP_API_KEY" ]
 then
 	echo "Required input APPSWEEP_API_KEY is empty"	
 	exit 1
 fi
-​
+
 cd ${project_location}
 BUILD_FILE=./app/build.gradle
-​
+
 if [ ! -f "$BUILD_FILE" ]; then
     echo "$BUILD_FILE does not exist. Probably you are using not standard project structure, please add \"com.guardsquare.appsweep\" to the plugin section of your app's build.gradle script."
 else
@@ -34,7 +34,7 @@ else
 		fi   
 	fi
 fi
-​
+
 if [ -f "${gradlew_path}" ];
 then
 	echo "The gradlew wrapper was found in ${gradlew_path}."
@@ -47,15 +47,16 @@ else
 	echo "The gradlew wrapper was not found. Please provide the correct gradlew_path."
 	exit 1
 fi
+echo ${build_variant}
 if ${build_variant}
 then
     output=$($GRADLEW uploadToAppSweepDebug)
 else
     output=$($GRADLEW uploadToAppSweepRelease)
 fi
-​
+
 url=$(echo $output | grep -oP '(?<=Your scan results will be available at )[^ ]*' )
-​
+
 envman add --key APPSWEEP_UPLOAD_URL --value $url
 echo "APPSWEEP_UPLOAD_URL="$url
-​
+
