@@ -57,7 +57,6 @@ fi
 
 url=$(echo $output | grep -oP '(?<=Your scan results will be available at )[^ ]*' )
 
-echo "Results of scan will be avaliable at "$url
-
 envman add --key APPSWEEP_UPLOAD_URL --value $url
+echo "APPSWEEP_UPLOAD_URL="$APPSWEEP_UPLOAD_URL
 
