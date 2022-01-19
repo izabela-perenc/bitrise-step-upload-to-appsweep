@@ -11,7 +11,7 @@ fi
 
 cd ${project_location}
 BUILD_FILE=./app/build.gradle
-
+GRADLE_PLUGIN=${gradle_plugin_version}
 if [ ! -f "$BUILD_FILE" ]; then
     echo "$BUILD_FILE does not exist. Probably you are using not standard project structure, please add \"com.guardsquare.appsweep\" to the plugin section of your app's build.gradle script."
 else
@@ -25,7 +25,7 @@ else
 		#remove potential new line characters after 'plugins'
 		sed -i '/plugins/{N;s/\n//;}' $BUILD_FILE
 		#inject AppSweep plugin
-		sed -i 's/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version \"${gradle_plugin_version}\"\n/1' $BUILD_FILE
+		sed -i "s/plugins\s*{/plugins\n{\n\tid "com.guardsquare.appsweep" version "${gradle_plugin_version}"\n/1" $BUILD_FILE
 		if grep -Fq "\"com.guardsquare.appsweep\"" $BUILD_FILE
 		then
 			echo "AppSweep plugin succesfully injected to $BUILD_FILE."
