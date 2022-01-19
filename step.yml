@@ -57,7 +57,7 @@ inputs:
 outputs:
 - APPSWEEP_UPLOAD_URL:
   opts:
-  	title: AppSweep upload url
-  	summary: Direct link to uploaded app on AppSweep website
-  	description: |
-   	 The app is uploaded to AppSweep and scan results can be accessed in the project section. The url of particular upload is generated during the step, so that results can be accessed also directly via this url.
+    title: AppSweep upload url
+    summary: Direct link to uploaded app on AppSweep website
+    description: |
+      The app is uploaded to AppSweep and scan results can be accessed in the project section. The url of particular upload is generated during the step, so that results can be accessed also directly via this url.
